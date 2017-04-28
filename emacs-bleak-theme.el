@@ -1,13 +1,11 @@
+;;; bleak-theme.el --- Theme 
 
-;;; Bleak-theme.el --- Emacs theme with a dark background.
-
-;; Copyright (C) 2014 , Maximilian Kuschewski
+;; Copyright (C) 2016 , Maximilian Kuschewski
 
 ;; Author: Maximilian Kuschewski
-;; https://github.com/maxi-k/emacs-bleak-theme
 ;; Version: 0.1
 ;; Package-Requires: ((emacs "24"))
-;; Created with emacs-theme-generator, https://github.com/mswift42/theme-creator.
+;; Created with ThemeCreator, https://github.com/mswift42/themecreator.
 
 
 ;; This program is free software: you can redistribute it and/or modify
@@ -29,18 +27,16 @@
 
 ;;; Code:
 
- (deftheme Bleak)
+ (deftheme bleak)
  (let ((class '((class color) (min-colors 89)))
        (fg1 "#c6c6c6")
-       (fg2 "#b4b4b4")
-       (fg3 "#a3a3a3")
-       (fg4 "#929292")
+       (fg2 "#b6b6b6")
+       (fg3 "#a6a6a6")
+       (fg4 "#969696")
        (bg1 "#1e1e1e")
-       (bg2 "#2d2d2d")
-       (bg3 "#3c3c3c")
-       (bg4 "#4d4d4d")
-       (key2 "#b894b8")
-       (key3 "#9a779a")
+       (bg2 "#303030")
+       (bg3 "#424242")
+       (bg4 "#545454")
        (builtin "#af87af")
        (keyword "#af87af")
        (const   "#afaf87")
@@ -49,9 +45,10 @@
        (str     "#afaf87")
        (type    "#87afd7")
        (var     "#d7af87")
-       (warning "#ff0000"))
+       (warning "#ff0000")
+       (warning2 "#ff8800"))
    (custom-theme-set-faces
-   'Bleak
+   'bleak
         `(default ((,class (:background ,bg1 :foreground ,fg1))))
         `(font-lock-builtin-face ((,class (:foreground ,builtin))))
         `(font-lock-comment-face ((,class (:foreground ,comment))))
@@ -59,7 +56,7 @@
 	`(font-lock-reference-face ((,class (:foreground ,const))))
 	`(font-lock-constant-face ((,class (:foreground ,const))))
         `(font-lock-doc-face ((,class (:foreground ,comment))))
-        `(font-lock-function-name-face ((,class (:foreground ,func :bold t))))
+        `(font-lock-function-name-face ((,class (:foreground ,func ))))
         `(font-lock-keyword-face ((,class (:bold ,class :foreground ,keyword))))
         `(font-lock-string-face ((,class (:foreground ,str))))
         `(font-lock-type-face ((,class (:foreground ,type ))))
@@ -73,7 +70,7 @@
         `(show-paren-match-face ((,class (:background ,warning))))
         `(isearch ((,class (:bold t :foreground ,warning :background ,bg3))))
         `(mode-line ((,class (:box (:line-width 1 :color nil) :bold t :foreground ,fg4 :background ,bg2))))
-        `(mode-line-inactive ((,class (:box (:line-width 1 :color nil :style pressed-button) :foreground ,key3 :background ,bg1 :weight normal))))
+        `(mode-line-inactive ((,class (:box (:line-width 1 :color nil :style pressed-button) :foreground ,var :background ,bg1 :weight normal))))
         `(mode-line-buffer-id ((,class (:bold t :foreground ,func :background nil))))
 	`(mode-line-highlight ((,class (:foreground ,keyword :box nil :weight bold))))
         `(mode-line-emphasis ((,class (:foreground ,fg1))))
@@ -108,7 +105,7 @@
 	`(org-verbatim ((,class (:foreground ,fg4))))
         `(org-document-info-keyword ((,class (:foreground ,func))))
 	`(font-latex-bold-face ((,class (:foreground ,type))))
-	`(font-latex-italic-face ((,class (:foreground ,key3 :italic t))))
+	`(font-latex-italic-face ((,class (:foreground ,var :italic t))))
 	`(font-latex-string-face ((,class (:foreground ,str))))
 	`(font-latex-match-reference-keywords ((,class (:foreground ,const))))
 	`(font-latex-match-variable-keywords ((,class (:foreground ,var))))
@@ -126,7 +123,7 @@
 	`(ffap ((,class (:foreground ,fg4))))
 	`(js2-private-function-call ((,class (:foreground ,const))))
 	`(js2-jsdoc-html-tag-delimiter ((,class (:foreground ,str))))
-	`(js2-jsdoc-html-tag-name ((,class (:foreground ,key2))))
+	`(js2-jsdoc-html-tag-name ((,class (:foreground ,var))))
 	`(js2-external-variable ((,class (:foreground ,type  ))))
         `(js2-function-param ((,class (:foreground ,const))))
         `(js2-jsdoc-value ((,class (:foreground ,str))))
@@ -134,7 +131,7 @@
         `(js3-warning-face ((,class (:underline ,keyword))))
         `(js3-error-face ((,class (:underline ,warning))))
         `(js3-external-variable-face ((,class (:foreground ,var))))
-        `(js3-function-param-face ((,class (:foreground ,key3))))
+        `(js3-function-param-face ((,class (:foreground ,fg2))))
         `(js3-jsdoc-tag-face ((,class (:foreground ,keyword))))
         `(js3-instance-member-face ((,class (:foreground ,const))))
 	`(warning ((,class (:foreground ,warning)))) 
@@ -196,8 +193,8 @@
         `(helm-buffer-size ((,class (:foreground ,fg1 :background ,bg1))))
         `(helm-ff-directory ((,class (:foreground ,func :background ,bg1 :weight bold))))
         `(helm-ff-file ((,class (:foreground ,fg1 :background ,bg1 :weight normal))))
-        `(helm-ff-executable ((,class (:foreground ,key2 :background ,bg1 :weight normal))))
-        `(helm-ff-invalid-symlink ((,class (:foreground ,key3 :background ,bg1 :weight bold))))
+        `(helm-ff-executable ((,class (:foreground ,var :background ,bg1 :weight normal))))
+        `(helm-ff-invalid-symlink ((,class (:foreground ,warning2 :background ,bg1 :weight bold))))
         `(helm-ff-symlink ((,class (:foreground ,keyword :background ,bg1 :weight bold))))
         `(helm-ff-prefix ((,class (:foreground ,bg1 :background ,keyword :weight normal))))
         `(helm-grep-cmd-line ((,class (:foreground ,fg1 :background ,bg1))))
@@ -210,7 +207,7 @@
         `(helm-source-go-package-godoc-description ((,class (:foreground ,str))))
         `(helm-bookmark-w3m ((,class (:foreground ,type))))
         `(company-echo-common ((,class (:foreground ,bg1 :background ,fg1))))
-        `(company-preview ((,class (:background ,bg1 :foreground ,key2))))
+        `(company-preview ((,class (:background ,bg1 :foreground ,var))))
         `(company-preview-common ((,class (:foreground ,bg2 :foreground ,fg3))))
         `(company-preview-search ((,class (:foreground ,type :background ,bg1))))
         `(company-scrollbar-bg ((,class (:background ,bg3))))
@@ -238,7 +235,7 @@
         `(jde-java-font-lock-public-face ((t (:foreground ,keyword))))
         `(jde-java-font-lock-private-face ((t (:foreground ,keyword))))
         `(jde-java-font-lock-constant-face ((t (:foreground ,const))))
-        `(jde-java-font-lock-modifier-face ((t (:foreground ,key3))))
+        `(jde-java-font-lock-modifier-face ((t (:foreground ,fg2))))
         `(jde-jave-font-lock-protected-face ((t (:foreground ,keyword))))
         `(jde-java-font-lock-number-face ((t (:foreground ,var))))))
 
@@ -247,10 +244,10 @@
   (add-to-list 'custom-theme-load-path
                (file-name-as-directory (file-name-directory load-file-name))))
 
-(provide-theme 'Bleak)
+(provide-theme 'bleak)
 
 ;; Local Variables:
 ;; no-byte-compile: t
 ;; End:
 
-;;; Bleak-theme.el ends here
+;;; bleak-theme.el ends here
